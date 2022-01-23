@@ -1,0 +1,45 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://scripts/lobby.gd" type="Script" id=1]
+
+[node name="Lobby" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ButtonHost" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -125.0
+margin_top = -30.0
+margin_right = 155.0
+margin_bottom = 30.0
+text = "Host"
+
+[node name="ButtonJoin" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -126.0
+margin_top = 68.0
+margin_right = 154.0
+margin_bottom = 128.0
+text = "Join"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -153.0
+margin_top = 60.0
+margin_right = 153.0
+margin_bottom = 100.0
+text = "Multiplayer FPS Game Made from Scratch with the Godot Game Engine (Do not press Host)"
+
+[connection signal="pressed" from="ButtonHost" to="." method="_on_ButtonHost_pressed"]
+[connection signal="pressed" from="ButtonJoin" to="." method="_on_ButtonJoin_pressed"]
