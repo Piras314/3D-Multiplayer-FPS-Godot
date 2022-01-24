@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Noise.mp3-05a045599e4eccbc6fed6266f6baeaad.mp3str"
+
+[deps]
+
+source_file="res://res/grandmas_tv/Noise.mp3"
+dest_files=[ "res://.import/Noise.mp3-05a045599e4eccbc6fed6266f6baeaad.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

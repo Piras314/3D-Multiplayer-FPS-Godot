@@ -1,0 +1,11 @@
+Model Information:
+* title:	boombox
+* source:	https://sketchfab.com/3d-models/boombox-3c64c2aedd5e4eb589011d146db6a282
+* author:	dyusha (https://sketchfab.com/dyusha)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "boombox" (https://sketchfab.com/3d-models/boombox-3c64c2aedd5e4eb589011d146db6a282) by dyusha (https://sketchfab.com/dyusha) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

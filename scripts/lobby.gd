@@ -16,7 +16,7 @@ func _on_ButtonHost_pressed():
 
 func _on_ButtonJoin_pressed():
 	var net = NetworkedMultiplayerENet.new()
-	net.create_client("127.0.0.1", net_port)
+	net.create_client("3dmultiplayerfpsgodot.chickenkiller.com", net_port)
 	tree.set_network_peer(net)
 
 func _player_connected(id):

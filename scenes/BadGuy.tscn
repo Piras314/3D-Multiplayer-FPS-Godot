@@ -2,7 +2,7 @@
 
 [ext_resource path="res://scripts/baddie.gd" type="Script" id=1]
 
-[sub_resource type="SpatialMaterial" id=1]
+[sub_resource type="SpatialMaterial" id=4]
 albedo_color = Color( 0.454902, 0.0823529, 0.0823529, 1 )
 emission_enabled = true
 emission = Color( 0.454902, 0.0823529, 0.0823529, 1 )
@@ -11,7 +11,7 @@ emission_operator = 0
 emission_on_uv2 = false
 
 [sub_resource type="CapsuleMesh" id=2]
-material = SubResource( 1 )
+material = SubResource( 4 )
 mid_height = 3.0
 
 [sub_resource type="CapsuleShape" id=3]
@@ -28,3 +28,9 @@ material/0 = null
 [node name="CollisionShape" type="CollisionShape" parent="."]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0 )
 shape = SubResource( 3 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

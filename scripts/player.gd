@@ -32,8 +32,9 @@ onready var head = $Head
 onready var ground_check = $GroundCheck
 onready var anim_player = $AnimationPlayer
 onready var camera = $Head/Camera
-onready var raycast = $Head/Camera/RayCast
+onready var raycast = $Head/Camera/Hand/RayCast
 onready var hand = $Head/Camera/Hand
+onready var shootsound = $Head/Camera/Hand/RayCast/ShootSound
 
 
 onready var b_decal = preload("res://scenes/BulletDecal.tscn")
@@ -77,24 +78,25 @@ func _input(event):
 		_set_rotation(event.relative) # call function locally.
 		rpc_unreliable("_set_rotation", event.relative) # also, make a call to all other machines.
 	
-	if Input.is_action_pressed("fire"):
+	if Input.is_action_just_pressed("fire"):
 		if not anim_player.is_playing():
+			shootsound.play()
 			camera.translation = lerp(camera.translation, 
 				Vector3(rand_range(MAX_CAM_SHAKE, -MAX_CAM_SHAKE), 
 				rand_range(MAX_CAM_SHAKE, -MAX_CAM_SHAKE), 0), 0.5)
 			if raycast.is_colliding():
 				var target = raycast.get_collider()
-				print(target)
 				if target.is_in_group("Enemies") or target.is_in_group("Players"):
-					if target.health <= 0:
-						print("Kill it man")
 					target.health -= damage
 				
 				else:
 					var b = b_decal.instance()
 					raycast.get_collider().add_child(b)
 					b.global_transform.origin = raycast.get_collision_point()
-					b.look_at(raycast.get_collision_point() + raycast.get_collision_normal(), Vector3.UP)
+					if is_on_floor():
+						b.rotation_degrees.x = 90
+					else:
+						b.look_at_from_position(raycast.get_collision_point(), raycast.get_collision_point() + raycast.get_collision_normal(), Vector3.UP)
 			anim_player.play("AssaultFire")
 		
 		else:
